@@ -6,3 +6,5 @@ npm install
 
 npm dev
 
+DEMO: https://disk.lishiguang.net/calculator/
+
