@@ -1,0 +1,92 @@
+/* Minxins: Start */
+@mixin display-box-center {
+    display: box;
+    box-pack: center;
+    box-align: center;
+    
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    display: -o-box;
+    -o-box-pack: center;
+    -o-box-align: center;
+}
+
+@mixin display-box-vertical {
+    box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+}
+
+@mixin display-box-horizontal {
+    box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -o-box-orient: horizontal;
+}
+
+$color-border: #545454;
+
+/* Minxins: End */
+
+
+.jml-app-stage {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #e0e5e0;
+    @include display-box-center;
+}
+
+.jml-calculator-wrapper {
+    width: 320px;
+    height: 480px;
+    border: solid 1px $color-border;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    @include display-box-center;
+    @include display-box-vertical;
+}
+
+.jml-clt-row {
+    width: 300px;
+    height: 75px;
+    @include display-box-center;
+    @include display-box-horizontal;
+}
+
+.jml-ctl-monitor {
+    width: 300px;
+    height: 60px;
+    border: solid 1px $color-border;
+    line-height: 60px;
+    font-size: 32px;
+    text-align: right;
+    overflow-x: hidden;
+}
+
+.jml-clt-btn {
+    width: 60px;
+    height: 60px;
+    border: solid 1px $color-border;
+    @include display-box-center;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    margin: 0 9px;
+    &:first-child {
+        margin-left: 0px;
+    }
+    &:last-child {
+        margin-right: 0px;
+    }
+}
