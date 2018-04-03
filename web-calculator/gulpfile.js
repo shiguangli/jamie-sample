@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
-    connect = require('gulp-connect')
+    connect = require('gulp-connect'),
+    uglify = require('gulp-uglify'),
     del = require('del');
 
 // out-of-time
@@ -34,6 +35,13 @@ gulp.task('copy-js', function() {
         .pipe(connect.reload());
 });
 
+gulp.task('copy-compress-js', function() {
+    return gulp.src(['scripts/*.js'])
+        .pipe(uglify())
+        .pipe(gulp.dest('publish/scripts'))
+        .pipe(connect.reload());
+});
+
 gulp.task('webserver', function() {
     return connect.server({
         root: 'publish/',
@@ -53,5 +61,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('dev', ['styles', 'copy-html', 'copy-js', 'webserver', 'watch']);
+
+gulp.task('run', ['styles', 'copy-html', 'copy-compress-js', 'webserver', 'watch']);
 
 gulp.task('default', ['dev']);
