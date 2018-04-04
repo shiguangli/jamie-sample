@@ -1,4 +1,4 @@
-(function() {
+$(function() {
     var _c = {
         'str': '',
         'calculateFinishedFlag': false
@@ -52,4 +52,4 @@
         }
         _c.buttonClickHandler($btn);
     });
-})();
+});
